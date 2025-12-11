@@ -63,6 +63,10 @@ int main() {
         }
     }
     std::cout << "\n";
+
+    // ===== Milestone 4 START =====
+    printAirportsInRange(counts, 5, 8);// examples range
+    printAirportsInRange(counts, 9, 12);
   
     return 0;
 }
