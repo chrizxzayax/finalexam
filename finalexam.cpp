@@ -6,6 +6,25 @@
 
 using namespace std;
 
+
+// ===== Milestone 3 START =====
+void printAirportsInRange(const std::map<std::string,int>& counts, int low, int high) {
+    std::cout << "Airports with traffic in range [" << low << ", " << high << "]:\n";
+    bool found = false;
+    for (const auto &p : counts) {
+        if (p.second >= low && p.second <= high) {// in range
+            std::cout << p.first << " " << p.second << "\n";
+            found = true;
+        }
+    }
+
+    if (!found) // no airports found
+    {
+        std::cout << "(none)\n";
+    }
+    std::cout << "\n";
+}
+
 int main() {
 
     const std::string filename = "210-final-1-FA25.txt";
@@ -34,13 +53,16 @@ int main() {
     // ===== Milestone 2 START =====
     int maxCount = 0;
     for (const auto &p : counts) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
-        }
-        else {
-            continue;
-        }
+        if (p.second > maxCount) maxCount = p.second;
     }
 
+    std::cout << "Busiest airport(s) with count " << maxCount << ":\n";
+     for (const auto &p : counts) {
+        if (p.second == maxCount) {
+            std::cout << p.first << " " << p.second << "\n";
+        }
+    }
+    std::cout << "\n";
+  
     return 0;
 }
