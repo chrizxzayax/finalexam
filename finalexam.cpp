@@ -7,25 +7,31 @@
 using namespace std;
 
 int main() {
+
     const std::string filename = "210-final-1-FA25.txt";
     std::ifstream infile(filename);
     if (!infile) {
-        std::cerr << "Error: could not open file '" << filename << "'. Please mister, make sure it is in the same directory.\n";
+        std::cerr << "Error: could not open file '" << filename << "'. Make sure it is in the same directory.\n";
         return 1;
     }
 
     std::map<std::string,int> counts;
-
-    // ===== Milestone 1 START =====
     std::string origin, dest;
+    
+    // ===== Milestone 1 START =====
     while (infile >> origin >> dest) {
-        ++counts[origin];
-        ++counts[dest];
+        ++counts[origin];// this will default initialize to 0 if key not present
+        ++counts[dest];  // same here
+    }
+    
+    infile.close();
+    std::cout << "All airport traffic counts:\n";
+    for (const auto &p : counts) {
+        std::cout << p.first << " " << p.second << "\n";
     }
 
-    // Print all airports and their counts in natural (alphabetical) order of the map.
-    std::cout << "All airport traffic counts:\n";
     std::cout << "\n";
     // ===== Milestone 1 END =====
+    
     return 0;
 }
