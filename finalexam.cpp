@@ -31,7 +31,16 @@ int main() {
     }
 
     std::cout << "\n";
-    // ===== Milestone 1 END =====
-    
+    // ===== Milestone 2 START =====
+    int maxCount = 0;
+    for (const auto &p : counts) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
+        }
+        else {
+            continue;
+        }
+    }
+
     return 0;
 }
